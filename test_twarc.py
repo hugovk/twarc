@@ -40,14 +40,18 @@ def _travis_ci_but_no_secure_env_vars():
     """Helper function to say if we're testing on Travis CI,
     but don't have secure env vars
     """
+    print("_travis_ci_but_no_secure_env_vars")
     try:
         travis = os.environ['TRAVIS']
+        print(travis)
         travis_secure_env_vars = os.environ['TRAVIS_SECURE_ENV_VARS']
+        print(travis_secure_env_vars)
         if travis and not travis_secure_env_vars:
             return True
         else:
             return False
     except KeyError:
+        print("KeyError")
         return False
 
 
